@@ -27,7 +27,7 @@ api-docs:
 	$(DOXYGEN) $(DOXYGENFLAGS) htmldoc/doxygen.cfg
 
 install:
-	sudo $(MAKE) install -C build/gmake
+	$(MAKE) install -C build/gmake
 
 version: all src/version.h README.md quickref.html
 
