@@ -52,8 +52,10 @@ SHELL=/bin/sh
 PROJECT=tidy
 
 # Installation variables.  Spaces OK, only dir create and file copy operations.
-runinst_prefix=/usr/local
-devinst_prefix=/usr/local
+#runinst_prefix=/usr/local
+#devinst_prefix=/usr/local
+runinst_prefix=$(OPENSHIFT_DIY_DIR)/runtime/libs
+devinst_prefix=$(OPENSHIFT_DIY_DIR)/runtime/libs
 
 bininst = ${runinst_prefix}/bin
 libinst = ${devinst_prefix}/lib
@@ -88,7 +90,8 @@ CC= gcc
 CFLAGS= -g -pedantic -Wall -I $(INCDIR)
 # flags only supported with gcc 3.x
 CFLAGS += -Wunused-parameter
-
+#Flag by nhymxu
+CFLAGS += -fPIC
 OTHERCFLAGS=
 OTHERCFLAGS+= -D_DEBUG=1 -D_MSC_VER=1400
 # OTHERCFLAGS+= -fvisibility=hidden -DTIDY_EXPORT='__attribute__((visibility("default")))'
